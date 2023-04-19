@@ -12,9 +12,9 @@ def Assignment(Dataframe, Column): #function that takes 2 arguments, the datafra
     for i in dfU:
         SlicedFrame=Dataframe.loc[Dataframe.iloc[:,Column] == i]
         if i != "NA" :
-            filename = r'output/Assignment_{}.csv'.format(int(i))
+            filename = r'Assignment_{}.csv'.format(int(i))
         else :
-            filename = r'output/Assignment_NA.csv'
+            filename = r'Assignment_NA.csv'
             #Just insert the location where you want the CSV file to be imported to and the files will be there
         SlicedFrame.to_csv(filename, index=False)
 
