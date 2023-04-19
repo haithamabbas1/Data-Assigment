@@ -10,14 +10,12 @@ def Assignment(Dataframe, Column): #function that takes 2 arguments, the datafra
     dfU=Dataframe.iloc[:,Column].unique() #create and array with all the unique values in a given column 
                                           #to slice based on the value of the column
     for i in dfU:
+        SlicedFrame=Dataframe.loc[Dataframe.iloc[:,Column] == i]
         if i != "NA" :
-            SlicedFrame=Dataframe.loc[Dataframe.iloc[:,Column] == i]
-            filename = r'Assignment_{}.csv'.format(int(i))
-            #Just insert the location where you want the CSV file to be imported to and the files will be there
-            SlicedFrame.to_csv(filename, index=False)
+            filename = r'output/Assignment_{}.csv'.format(int(i))
         else :
-            SlicedFrame=Dataframe.loc[Dataframe.iloc[:,Column] == i]
             filename = r'output/Assignment_NA.csv'
+            #Just insert the location where you want the CSV file to be imported to and the files will be there
             SlicedFrame.to_csv(filename, index=False)
 
 def DoubleCheck(Dataframe, Column):    
